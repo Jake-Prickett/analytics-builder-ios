@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct State: AnalyticParams {
+struct State: AnalyticTrackingType {
     var type: AnalyticType = .trackingType
+    var trackingType: TrackingType = .state
     var value: String?
     
     init(_ value: String) {

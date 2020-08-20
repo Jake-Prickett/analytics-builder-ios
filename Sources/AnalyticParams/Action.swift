@@ -7,11 +7,12 @@
 
 import Foundation
 
-struct Action: AnalyticParams {
-    var type: AnalyticType = .trackingType
-    var value: Any?
+public struct Action: AnalyticTrackingType {
+    public var type: AnalyticType = .trackingType
+    public var trackingType: TrackingType = .action
+    public var value: String?
     
-    init(_ value: String) {
+    public init(_ value: String) {
         self.value = value
     }
 }

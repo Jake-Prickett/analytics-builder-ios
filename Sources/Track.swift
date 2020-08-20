@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct Track {
+public struct Track {
     private var event: AnalyticEvent
     
-    private var type: State {
-        guard let type = event.children?.first(where: { $0 is State }) as? State else {
+    private var type: AnalyticTrackingType {
+        guard let type = event.children?.first(where: { $0 is AnalyticTrackingType }) as? AnalyticTrackingType else {
             fatalError("Missing Type for Analytic Call")
         }
         return type
@@ -30,7 +30,7 @@ struct Track {
     }
     
     @discardableResult
-    init?(@AnalyticBuilder builder: () -> AnalyticParams) {
+    public init?(@AnalyticBuilder builder: () -> AnalyticParams) {
         guard let params = builder() as? AnalyticEvent else {
             preconditionFailure("Unexpected type returned from @AnalyticBuilder")
         }
@@ -45,7 +45,7 @@ struct Track {
     
     internal func debugDescription() {
         guard isDebug else { return }
-        print("Type: \(type.type)")
+        print("Type: \(type.trackingType)")
         for (index, param) in params.enumerated() {
             if let key = param.key, let value = param.value {
                 print("Parameter \(index+1) -- [\(key): \(value)]")

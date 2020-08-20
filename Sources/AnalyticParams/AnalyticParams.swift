@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol AnalyticParams {
+public protocol AnalyticParams {
     var type: AnalyticType { get }
     var key: String? { get }
     var value: String? { get }
@@ -15,7 +15,11 @@ protocol AnalyticParams {
 }
 
 extension AnalyticParams {
-    var key: String? { nil }
-    var value: String? { nil }
-    var children: [AnalyticParams]? { nil }
+    public var key: String? { nil }
+    public var value: String? { nil }
+    public var children: [AnalyticParams]? { nil }
+}
+
+protocol AnalyticTrackingType: AnalyticParams {
+    var trackingType: TrackingType { get }
 }

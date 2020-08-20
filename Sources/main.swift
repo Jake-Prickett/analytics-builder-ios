@@ -3,7 +3,6 @@
 
 Track {
     Action("test")
-    State("test2")
     Parameters(testParameterPopulator)
     Parameter("Jake", "Prickett")
     Debug()

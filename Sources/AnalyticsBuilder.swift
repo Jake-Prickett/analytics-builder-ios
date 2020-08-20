@@ -6,21 +6,21 @@
 //
 
 @_functionBuilder
-struct AnalyticBuilder {
-    static func buildBlock(_ params: AnalyticParams...) -> AnalyticParams {
+public struct AnalyticBuilder {
+    public static func buildBlock(_ params: AnalyticParams...) -> AnalyticParams {
         let resultParams = params.filter { $0.children == nil } + params.compactMap { $0.children }.joined()
         
         // Multiple Types
         if resultParams
-            .filter({ $0 is State })
+            .filter({ $0 is AnalyticTrackingType })
             .count > 1 {
-            fatalError("You cannot specify more than 1 `Type`")
+            fatalError("You cannot specify more than 1 `AnalyticTrackingType`")
         }
         
         return AnalyticEvent(resultParams)
     }
     
-    static func buildIf(_ param: AnalyticParams?) -> AnalyticParams {
+    public static func buildIf(_ param: AnalyticParams?) -> AnalyticParams {
         if let param = param {
             return param
         }

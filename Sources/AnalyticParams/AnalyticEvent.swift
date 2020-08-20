@@ -7,11 +7,12 @@
 
 import Foundation
 
-struct AnalyticEvent: AnalyticParams {
-    var type: AnalyticType = .event
-    var children: [AnalyticParams]?
+internal struct AnalyticEvent: AnalyticParams {
+    internal var type: AnalyticType = .event
+    internal var trackingType: AnalyticTrackingType?
+    internal var children: [AnalyticParams]?
     
-    init(_ children: [AnalyticParams]?) {
+    internal init(_ children: [AnalyticParams]?) {
         self.children = children
     }
 }

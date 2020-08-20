@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct Debug: AnalyticParams {
-    var type: AnalyticType = .debug
+public struct Debug: AnalyticParams {
+    public var type: AnalyticType = .debug
 }
