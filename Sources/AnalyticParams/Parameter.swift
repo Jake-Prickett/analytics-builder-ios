@@ -12,11 +12,16 @@ public struct Parameter: AnalyticParams {
     public var key: String?
     public var value: Any?
     
-    public init(_ key: String, _ value: Any) {
+    public init(
+        _ key: String,
+        _ value: Any
+    ) {
         self.key = key
         self.value = value
     }
 }
+
+// Customizable inits for closure/methods and trackable objects
 
 public struct Parameters: AnalyticParams {
     public var type: AnalyticType = .parameter

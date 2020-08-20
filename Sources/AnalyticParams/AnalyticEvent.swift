@@ -7,6 +7,8 @@
 
 import Foundation
 
+// Final executable analytic event to fire
+
 internal struct AnalyticEvent: AnalyticParams {
     internal var type: AnalyticType = .event
     internal var trackingType: AnalyticTrackingType?

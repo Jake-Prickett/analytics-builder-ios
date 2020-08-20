@@ -22,6 +22,8 @@ func testParameterPopulator() -> [String: String] {
     ]
 }
 
+// Created trackable objects that define what parameters to track
+
 struct TestTrackable1: AnalyticTrackable {
     var test1 = "TestTrackable1"
     var test2 = 12345

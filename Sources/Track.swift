@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Entry point into analytics
 public struct Track {
     private var event: AnalyticEvent
     
@@ -31,10 +32,10 @@ public struct Track {
     
     @discardableResult
     public init?(@AnalyticBuilder builder: () -> AnalyticParams) {
-        guard let params = builder() as? AnalyticEvent else {
+        guard let event = builder() as? AnalyticEvent else {
             preconditionFailure("Unexpected type returned from @AnalyticBuilder")
         }
-        self.event = params
+        self.event = event
         call()
     }
     

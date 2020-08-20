@@ -7,6 +7,8 @@
 
 import Foundation
 
+// State tracking (page load, etc.)
+
 struct State: AnalyticTrackingType {
     var type: AnalyticType = .trackingType
     var trackingType: TrackingType = .state
