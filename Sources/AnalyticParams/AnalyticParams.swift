@@ -23,3 +23,7 @@ extension AnalyticParams {
 protocol AnalyticTrackingType: AnalyticParams {
     var trackingType: TrackingType { get }
 }
+
+public protocol AnalyticTrackable {
+    var parameters: [String: String] { get }
+}

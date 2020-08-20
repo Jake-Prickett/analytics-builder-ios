@@ -3,6 +3,10 @@
 
 Track {
     Action("test")
+    Parameters(
+        TestTrackable1(),
+        TestTrackable2()
+    )
     Parameters(testParameterPopulator)
     Parameter("Jake", "Prickett")
     Debug()
@@ -16,4 +20,22 @@ func testParameterPopulator() -> [String: String] {
         "test2": "fail",
         "test3": "name",
     ]
+}
+
+struct TestTrackable1: AnalyticTrackable {
+    var test1 = "TestTrackable1"
+    var test2 = 12345
+    
+    var parameters: [String : String] {
+        [test1: "\(test2)"]
+    }
+}
+
+struct TestTrackable2: AnalyticTrackable {
+    var test1 = "TestTrackable2"
+    var test2 = 12345
+    
+    var parameters: [String : String] {
+        [test1: "\(test2)"]
+    }
 }

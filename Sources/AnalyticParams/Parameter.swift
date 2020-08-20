@@ -20,9 +20,15 @@ public struct Parameter: AnalyticParams {
 
 public struct Parameters: AnalyticParams {
     public var type: AnalyticType = .parameter
-    public var children: [AnalyticParams]?
+    public var children: [AnalyticParams]? = []
     
     public init(_ closure: (() -> [String: Any])) {
-        self.children = closure().map { Parameter($0.key, $0.value) }
+        self.children?.append(contentsOf: closure().map { Parameter($0.key, $0.value) })
+    }
+    
+    public init(_ trackable: AnalyticTrackable...) {
+        trackable.forEach {
+            self.children?.append(contentsOf: $0.parameters.map { Parameter($0.key, $0.value) })
+        }
     }
 }
