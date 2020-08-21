@@ -44,12 +44,13 @@ public struct Track {
     call()
   }
   
-  internal func call() {
+  func call() {
     debugDescription()
   }
   
-  internal func debugDescription() {
+  func debugDescription() {
     guard isDebug else { return }
+    
     print("Analytic Event")
     print(String(repeating: "-", count: 15))
     print("Type: \(type.trackingType)")
