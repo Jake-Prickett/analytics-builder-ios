@@ -7,15 +7,24 @@
 
 import Foundation
 
-// Entry point into analytics
+/*
+ Entry point into Analytics
+ This interface allows for declarative analytic syntax
+ ```
+ Track {
+    Action("Example Action")
+    Parameter("key", "value")
+ }
+ ```
+ */
 public struct Track {
     private var event: AnalyticEvent
     
     private var type: AnalyticTrackingType {
-        guard let type = event.children?.first(where: { $0 is AnalyticTrackingType }) as? AnalyticTrackingType else {
-            fatalError("Missing Type for Analytic Call")
+        guard let trackingType = event.trackingType else {
+            fatalError("Error: missing tracking type")
         }
-        return type
+        return trackingType
     }
     
     private var params: [Parameter] {
