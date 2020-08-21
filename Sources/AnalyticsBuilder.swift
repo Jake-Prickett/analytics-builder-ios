@@ -10,6 +10,8 @@ public struct AnalyticBuilder {
     public static func buildBlock(_ params: AnalyticBuildable...) -> AnalyticBuildable {
         let resultParams = params.filter { $0.children == nil } + params.compactMap { $0.children }.joined()
         
+        // TODO: Try and switch on the type of param, from there append to children or adjust the analytic type value
+        
         // Multiple Types
         if resultParams
             .filter({ $0 is AnalyticTrackingType })
