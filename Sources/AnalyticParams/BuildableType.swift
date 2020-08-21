@@ -8,8 +8,8 @@
 import Foundation
 
 public enum BuildableType {
-    case trackingType
-    case parameter
-    case debug
-    case event
+  case trackingType
+  case parameter
+  case debug
+  case event
 }

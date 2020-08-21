@@ -8,13 +8,12 @@
 import Foundation
 
 // Final internalized executable analytic event to fire
-
-internal struct AnalyticEvent: AnalyticBuildable {
-    internal var type: BuildableType = .event
-    internal var trackingType: AnalyticTrackingType?
-    internal var children: [AnalyticBuildable]?
-    
-    internal init(_ children: [AnalyticBuildable]?) {
-        self.children = children
-    }
+struct AnalyticEvent: AnalyticBuildable {
+  var type: BuildableType = .event
+  var trackingType: AnalyticTrackingType?
+  var children: [AnalyticBuildable]?
+  
+  init(_ children: [AnalyticBuildable]?) {
+    self.children = children
+  }
 }

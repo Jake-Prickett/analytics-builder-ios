@@ -8,6 +8,6 @@
 import Foundation
 
 public enum TrackingType {
-    case action
-    case state
+  case action
+  case state
 }
