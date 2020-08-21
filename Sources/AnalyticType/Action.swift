@@ -7,10 +7,10 @@
 
 import Foundation
 
-// Action state (button tap, etc.)
+// Analytic action state (button tap, etc.)
 
 public struct Action: AnalyticTrackingType {
-    public var type: AnalyticType = .trackingType
+    public var type: BuildableType = .trackingType
     public var trackingType: TrackingType = .action
     public var value: String?
     

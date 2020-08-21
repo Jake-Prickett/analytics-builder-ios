@@ -1,43 +1,36 @@
-
-// Declarative Syntax for analytic tracking
-
-Track {
-    Action("test")
-    Parameters(
-        TestTrackable1(),
-        TestTrackable2()
-    )
-    Parameters(testParameterPopulator)
-    Parameter("Jake", "Prickett")
-    Debug()
-}
-
-// Example populator method for building parameters and passing
-
-func testParameterPopulator() -> [String: String] {
-    return [
-        "test1": "success",
-        "test2": "fail",
-        "test3": "name",
-    ]
-}
-
-// Created trackable objects that define what parameters to track
-
-struct TestTrackable1: AnalyticTrackable {
-    var test1 = "TestTrackable1"
-    var test2 = 12345
+/*
+ 
+ Example executable that demonstrates functionBuilders as a means of writing
+ declarative analytic statements.
+ 
+ */
+struct DeclarativeAnalytics {
+    var testObject1 = TestTrackable1()
+    var testObject2 = TestTrackable2()
     
-    var parameters: [String : String] {
-        [test1: "\(test2)"]
+    static func fireAnalytic() {
+        // Example declarative syntax for analytic tracking
+        Track {
+            Action("test") // action vs. state
+            Parameters(
+                TestTrackable1(),
+                TestTrackable2()
+            )
+            Parameters(testParameterPopulator)
+            Parameter("Jake", "Prickett")
+            Debug() // Debug mode
+        }
+    }
+
+    // Example populator method for building parameters and passing
+
+    static func testParameterPopulator() -> [String: String] {
+        return [
+            "test1": "success",
+            "test2": "fail",
+            "test3": "name",
+        ]
     }
 }
 
-struct TestTrackable2: AnalyticTrackable {
-    var test1 = "TestTrackable2"
-    var test2 = 12345
-    
-    var parameters: [String : String] {
-        [test1: "\(test2)"]
-    }
-}
+DeclarativeAnalytics.fireAnalytic()

@@ -7,12 +7,7 @@
 
 import Foundation
 
-public enum TrackingType {
-    case action
-    case state
-}
-
-public enum AnalyticType {
+public enum BuildableType {
     case trackingType
     case parameter
     case debug

@@ -31,7 +31,7 @@ public struct Track {
     }
     
     @discardableResult
-    public init?(@AnalyticBuilder builder: () -> AnalyticParams) {
+    public init?(@AnalyticBuilder builder: () -> AnalyticBuildable) {
         guard let event = builder() as? AnalyticEvent else {
             preconditionFailure("Unexpected type returned from @AnalyticBuilder")
         }
@@ -40,7 +40,6 @@ public struct Track {
     }
     
     internal func call() {
-        // Make Analytics Call
         debugDescription()
     }
     

@@ -7,14 +7,16 @@
 
 import Foundation
 
-public struct Parameter: AnalyticParams {
-    public var type: AnalyticType = .parameter
+// Basic single parameter with a key/value pair
+
+public struct Parameter: AnalyticBuildable {
+    public var type: BuildableType = .parameter
     public var key: String?
-    public var value: Any?
+    public var value: String?
     
     public init(
         _ key: String,
-        _ value: Any
+        _ value: String
     ) {
         self.key = key
         self.value = value
@@ -23,15 +25,17 @@ public struct Parameter: AnalyticParams {
 
 // Customizable inits for closure/methods and trackable objects
 
-public struct Parameters: AnalyticParams {
-    public var type: AnalyticType = .parameter
-    public var children: [AnalyticParams]? = []
+public struct Parameters: AnalyticBuildable {
+    public var type: BuildableType = .parameter
+    public var children: [AnalyticBuildable]? = []
     
-    public init(_ closure: (() -> [String: Any])) {
+    // Initialize based off of closure/method return
+    public init(_ closure: (() -> [String: String])) {
         self.children?.append(contentsOf: closure().map { Parameter($0.key, $0.value) })
     }
     
-    public init(_ trackable: AnalyticTrackable...) {
+    // Pass multiple objects - `Parameter(obj1, obj2)`
+    public init(_ trackable: AnalyticObject...) {
         trackable.forEach {
             self.children?.append(contentsOf: $0.parameters.map { Parameter($0.key, $0.value) })
         }

@@ -9,6 +9,6 @@ import Foundation
 
 // Toss this in there if you want to enable debug mode for your analytic
 
-public struct Debug: AnalyticParams {
-    public var type: AnalyticType = .debug
+public struct Debug: AnalyticBuildable {
+    public var type: BuildableType = .debug
 }
