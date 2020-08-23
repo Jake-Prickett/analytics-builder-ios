@@ -7,7 +7,7 @@
 
 import Foundation
 
-// Toss this in there if you want to enable debug mode for your analytic
+/// Toss this in the `Track` call if you want to enable debug mode for your analytic event
 public struct Debug: AnalyticBuildable {
   public var type: BuildableType = .debug
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-// Final internalized executable analytic event to fire
+/// Final internalized executable analytic event to fire
 struct AnalyticEvent: AnalyticBuildable {
   var type: BuildableType = .event
   var trackingType: AnalyticTrackingType?

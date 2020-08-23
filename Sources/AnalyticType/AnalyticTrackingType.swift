@@ -7,7 +7,7 @@
 
 import Foundation
 
-// Tracking type (state vs action)
+/// Tracking type (state vs action)
 protocol AnalyticTrackingType: AnalyticBuildable {
   var trackingType: TrackingType { get }
 }

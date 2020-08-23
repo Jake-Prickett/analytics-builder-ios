@@ -5,8 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "AnalyticsBuilder",
-    dependencies: [
-    ],
+    dependencies: [],
     targets: [
         .target(name: "AnalyticsBuilder", dependencies: [], path: "Sources"),
     ]

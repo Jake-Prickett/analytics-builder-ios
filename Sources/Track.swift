@@ -28,11 +28,11 @@ public struct Track {
   }
   
   private var params: [Parameter] {
-    return event.children?.compactMap { $0 as? Parameter } ?? []
+    event.children?.compactMap { $0 as? Parameter } ?? []
   }
   
   private var isDebug: Bool {
-    return event.children?.contains(where: { $0 is Debug }) ?? false
+    event.children?.contains(where: { $0 is Debug }) ?? false
   }
   
   @discardableResult

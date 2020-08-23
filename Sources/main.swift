@@ -5,16 +5,16 @@
  
  */
 struct DeclarativeAnalytics {
-  var testObject1 = TestTrackable1()
-  var testObject2 = TestTrackable2()
+  static var testObject1 = TestTrackable1()
+  static var testObject2 = TestTrackable2()
   
   static func fireAnalytic() {
     // Example declarative syntax for analytic tracking
     Track {
       Action("test") // action vs. state
       Parameters(
-        TestTrackable1(),
-        TestTrackable2()
+        testObject1,
+        testObject2
       )
       Parameters(testParameterPopulator)
       Parameter("Jake", "Prickett")

@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Types of analytic events that can be fired.
 public enum TrackingType {
   case action
   case state
