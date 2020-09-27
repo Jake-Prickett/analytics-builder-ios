@@ -1,5 +1,4 @@
-# AnalyticsBuilder
-## Work in Progress
+# AnalyticsBuilder Demo
 Leverages Swift functionBuilders to construct an analytic event to fire. 
 
 Example Syntax:
